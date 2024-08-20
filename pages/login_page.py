@@ -8,10 +8,10 @@ class LoginPage(BasePage):
         self.driver = driver
 
     # Locators
-    USERNAME_FIELD = (By.NAME, 'login')  # Adjust locator as needed
-    PASSWORD_FIELD = (By.NAME, 'password')  # Adjust locator as needed
+    USERNAME_FIELD = (By.NAME, 'login')
+    PASSWORD_FIELD = (By.NAME, 'password')
     GIT_HUB_LOGIN = (By.XPATH, '//span[contains(text(), "Continue with Github")]')
-    LOGIN_BUTTON = (By.NAME, 'commit')  # Adjust locator as needed
+    LOGIN_BUTTON = (By.NAME, 'commit')
 
     def enter_username(self, username):
         self.enter_text(*self.USERNAME_FIELD, username)
