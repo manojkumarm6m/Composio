@@ -44,5 +44,5 @@ class ConnectedAccounts(BasePage):
         self.click_element(*self.CLOSE)
 
     def wait_for_element(self):
-        return self.wait_for_element_visible(*self.EXECUTION_SUCCESS)
+        return self.element_displayed(*self.EXECUTION_SUCCESS)
 
