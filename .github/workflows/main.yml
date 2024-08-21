@@ -11,15 +11,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.8'
+
     - name: Install dependencies
       run: pip install -r requirements.txt
-    - name: Install Chrome
+
+    - name: Install Chromium and ChromeDriver
       run: |
         sudo apt-get update
         sudo apt-get install -y chromium-browser
+        sudo apt-get install -y chromium-chromedriver
+
+    - name: Set up ChromeDriver
+      run: |
+        export CHROMEDRIVER_PATH=$(which chromedriver)
+        export CHROME_BIN=/usr/bin/chromium-browser
+
     - name: Run tests
       run: pytest
+      env:
+        DISPLAY: :99.0
