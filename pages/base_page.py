@@ -57,10 +57,7 @@ class BasePage:
         return data["login_details"]["username"], data["login_details"]["password"]
 
     def element_displayed(self, by, value):
-        try:
-            element = WebDriverWait(self.driver, self.timeout).until(
-                EC.presence_of_element_located((by, value))
-            )
-            return element.is_displayed()
-        except TimeoutException:
-            return False
+        element = WebDriverWait(self.driver, self.timeout).until(
+            EC.presence_of_element_located((by, value))
+        )
+        return element.is_displayed()
