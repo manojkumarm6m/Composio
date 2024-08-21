@@ -1,3 +1,5 @@
+import time
+
 import pytest
 from pages.connected_accounts_page import ConnectedAccounts
 
@@ -7,6 +9,9 @@ class TestConnectedAccounts:
 
     def test_login_successful(self):
         contd_ac = ConnectedAccounts(self.driver)
+        time.sleep(5)
         contd_ac.click_connected_accounts()
         contd_ac.click_github()
         contd_ac.execute_actions()
+        success = contd_ac.wait_for_element()
+        assert success.is_displayed()
