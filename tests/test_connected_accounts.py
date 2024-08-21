@@ -13,3 +13,4 @@ class TestConnectedAccounts:
         contd_ac.click_connected_accounts()
         contd_ac.click_github()
         contd_ac.execute_actions()
+
