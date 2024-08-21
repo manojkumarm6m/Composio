@@ -56,7 +56,11 @@ class BasePage:
             data = json.load(file)
         return data["login_details"]["username"], data["login_details"]["password"]
 
-    def wait_for_element_visible(self, by, value, timeout=10):
-        return WebDriverWait(self.driver, timeout).until(
-            EC.visibility_of_element_located((by, value))
-        )
+    def element_displayed(self, by, value):
+        try:
+            element = WebDriverWait(self.driver, self.timeout).until(
+                EC.presence_of_element_located((by, value))
+            )
+            return element.is_displayed()
+        except TimeoutException:
+            return False

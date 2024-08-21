@@ -13,5 +13,4 @@ class TestConnectedAccounts:
         contd_ac.click_connected_accounts()
         contd_ac.click_github()
         contd_ac.execute_actions()
-        assert  contd_ac.wait_for_element()
-        # assert success.is_displayed()
+        assert contd_ac.wait_for_element()
